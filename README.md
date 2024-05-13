@@ -41,7 +41,7 @@ dependencyResolutionManagement {
 
 ```kt
 plugins {
-    id("com.adkhambek.android-application")
+    id("android-application-conventions")
 }
 ```
 
@@ -51,7 +51,7 @@ plugins {
 
 ```groovy
 plugins {
-    id 'com.adkhambek.android-application'
+    id 'android-application-conventions'
 }
 ```
 
