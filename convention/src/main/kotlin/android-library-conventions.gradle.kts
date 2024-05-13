@@ -18,7 +18,7 @@ android {
 
     defaultConfig {
         minSdk = libraries.versions.minSdk
-        targetSdk = libraries.versions.targetSdk // needed for instrumental tests
+        testOptions.targetSdk = libraries.versions.targetSdk // needed for instrumental tests
     }
 
     buildTypes {
@@ -32,7 +32,7 @@ android {
         }
     }
 
-    packagingOptions {
+    packaging {
         resources {
             excludes.add("META-INF/LICENSE.md")
             excludes.add("META-INF/LICENSE-notice.md")

@@ -7,6 +7,9 @@ compileSdk = "33"
 sourceCompatibility = "11"
 targetCompatibility = "11"
 
+gradleSourceCompatibility = "21"
+gradleTargetCompatibility = "21"
+
 agp = "8.4.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
