@@ -1,5 +1,5 @@
 import extension.getSigningConfigProperties
-import extension.libs
+import extension.libraries
 import extension.versions
 
 plugins {
@@ -9,11 +9,11 @@ plugins {
 }
 
 android {
-    compileSdk = libs.versions.compileSdk
+    compileSdk = libraries.versions.compileSdk
 
     compileOptions {
-        sourceCompatibility = libs.versions.sourceCompatibility
-        targetCompatibility = libs.versions.targetCompatibility
+        sourceCompatibility = libraries.versions.sourceCompatibility
+        targetCompatibility = libraries.versions.targetCompatibility
     }
 
     signingConfigs {
@@ -34,8 +34,8 @@ android {
     }
 
     defaultConfig {
-        minSdk = libs.versions.minSdk
-        targetSdk = libs.versions.targetSdk
+        minSdk = libraries.versions.minSdk
+        targetSdk = libraries.versions.targetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -74,10 +74,10 @@ android {
     }
 
     project.kotlin {
-        jvmToolchain(jdkVersion = libs.versions.jdk.asInt())
+        jvmToolchain(jdkVersion = libraries.versions.jdk.asInt())
     }
 
     kotlinOptions {
-        jvmTarget = libs.versions.jdk.toString()
+        jvmTarget = libraries.versions.jdk.toString()
     }
 }

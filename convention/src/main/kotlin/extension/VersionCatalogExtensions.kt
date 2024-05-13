@@ -8,11 +8,11 @@ import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.api.provider.Provider
 import org.gradle.kotlin.dsl.getByType
 
-internal val Project.libs: VersionCatalog
+internal val Project.libraries: VersionCatalog
     get() = getVersionCatalog()
 
 private fun Project.getVersionCatalog(
-    name: String = "libs",
+    name: String = "libraries",
 ): VersionCatalog = extensions
     .getByType<VersionCatalogsExtension>()
     .named(name)

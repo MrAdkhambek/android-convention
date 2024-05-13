@@ -4,7 +4,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
     versionCatalogs {
-        create("libs") {
+        create("libraries") {
             val tomlFilePath = listOf(
                 "${rootProject.projectDir.parentFile}/gradle/libraries.versions.toml",
                 "./gradle/libraries.versions.toml",

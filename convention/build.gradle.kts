@@ -22,11 +22,11 @@ plugins {
 group = "com.adkhambek.build-logic.convention"
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(libs.versions.sourceCompatibility.get())
-    targetCompatibility = JavaVersion.toVersion(libs.versions.targetCompatibility.get())
+    sourceCompatibility = JavaVersion.toVersion(libraries.versions.sourceCompatibility.get())
+    targetCompatibility = JavaVersion.toVersion(libraries.versions.targetCompatibility.get())
 }
 
 dependencies {
-    implementation(libs.android.gradlePlugin)
-    implementation(libs.kotlin.gradlePlugin)
+    implementation(libraries.android.gradlePlugin)
+    implementation(libraries.kotlin.gradlePlugin)
 }
