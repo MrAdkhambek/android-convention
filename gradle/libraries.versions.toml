@@ -1,40 +1,144 @@
 [versions]
 
+#############################################
+## Android
+#############################################
 jdk = "11"
 minSdk = "21"
-targetSdk = "33"
-compileSdk = "33"
+targetSdk = "34"
+compileSdk = "34"
 sourceCompatibility = "11"
 targetCompatibility = "11"
 
 gradleSourceCompatibility = "21"
 gradleTargetCompatibility = "21"
 
+#############################################
+## Google
+#############################################
 agp = "8.4.0"
-kotlin = "1.9.0"
 coreKtx = "1.13.1"
-junit = "4.13.2"
-junitVersion = "1.1.5"
-espressoCore = "3.5.1"
 appcompat = "1.6.1"
 material = "1.12.0"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
+androidxLifecycle = "2.7.0"
+
+#############################################
+## Kotlin
+#############################################
+kotlin = "1.9.0"
+kotlin-ksp = "1.9.0-1.0.13"
+kotlin-coroutines = "1.8.1"
+
+#############################################
+## Java
+#############################################
+javax-inject = "javax.inject:javax.inject:1"
+
+#############################################
+## Network
+#############################################
+okhttp = "4.12.0"
+retrofit2 = "2.11.0"
+pluto = "2.2.2"
+
+#############################################
+## Test
+#############################################
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
 
 [libraries]
+#############################################
+## Google
+#############################################
+coreLibraryDesugaring = "com.android.tools:desugar_jdk_libs:2.0.4"
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+#############################################
+## AndroidX
+#############################################
+multidex = "androidx.multidex:multidex:2.0.1"
+annotation = "androidx.annotation:annotation:1.7.1"
+
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version = "1.7.0" }
+androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version = "1.9.0" }
+
+lifecycle-extensions = { group = "androidx.lifecycle", name = "lifecycle-extensions", version = "2.2.0" }
+lifecycle-common = { group = "androidx.lifecycle", name = "lifecycle-common-java8", version.ref = "androidxLifecycle" }
+lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+lifecycle-viewModel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "androidxLifecycle" }
+
+#############################################
+## Kotlin
+#############################################
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.6.3" }
+
+kotlin-coroutines-concurrentFutures = "androidx.concurrent:concurrent-futures-ktx:1.1.0"
+kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
+kotlin-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlin-coroutines" }
+kotlin-coroutines-playService = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "kotlin-coroutines" }
+
+#############################################
+## Network
+#############################################
+okhttp-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+okhttp-mockWebServer = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "okhttp" }
+okhttp-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+
+plutolib-debug = { group = "com.plutolib", name = "pluto", version.ref = "pluto" }
+plutolib-release = { group = "com.plutolib", name = "pluto-no-op", version.ref = "pluto" }
+plutolib-network-debug = { group = "com.plutolib.plugins", name = "network", version.ref = "pluto" }
+plutolib-network-release = { group = "com.plutolib.plugins", name = "network-no-op", version.ref = "pluto" }
+plutolib-preferences-debug = { group = "com.plutolib.plugins", name = "preferences", version.ref = "pluto" }
+plutolib-preferences-release = { group = "com.plutolib.plugins", name = "preferences-no-op", version.ref = "pluto" }
+
+squareup-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit2" }
+retrofit-json-adapter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version = "0.8.0" }
+
+
+#############################################
+## Test
+#############################################
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
-androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 
+[bundles]
+
+kotlin-core = [
+    "kotlin-stdlib",
+    "kotlin-serialization",
+    "kotlin-coroutines-concurrentFutures",
+    "kotlin-coroutines-core",
+]
+
 [plugins]
+#############################################
+## Google
+#############################################
 android-application = { id = "com.android.application", version.ref = "agp" }
-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+#############################################
+## Kotlin
+#############################################
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "kotlin-ksp" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
