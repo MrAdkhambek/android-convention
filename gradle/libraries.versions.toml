@@ -42,6 +42,7 @@ retrofit2 = "2.11.0"
 #############################################
 dagger = "2.46.1"
 anvil = "2.4.9"
+kunkka = "0.0.5"
 
 #############################################
 ## Test
@@ -100,6 +101,14 @@ anvil-annotations = { group = "com.squareup.anvil", name = "annotations", versio
 anvil-compiler-api = { group = "com.squareup.anvil", name = "compiler-api", version.ref = "anvil" }
 anvil-compiler-utils = { group = "com.squareup.anvil", name = "compiler-utils", version.ref = "anvil" }
 anvil-annotations-optional = { group = "com.squareup.anvil", name = "annotations-optional", version.ref = "anvil" }
+
+kunkka-fragment-core = { group = "com.adkhambek.kunkka", name = "fragment-core", version.ref = "kunkka" }
+kunkka-fragment-gen = { group = "com.adkhambek.kunkka", name = "fragment-gen", version.ref = "kunkka" }
+kunkka-viewmodel-core = { group = "com.adkhambek.kunkka", name = "viewmodel-core", version.ref = "kunkka" }
+kunkka-viewmodel-gen = { group = "com.adkhambek.kunkka", name = "viewmodel-gen", version.ref = "kunkka" }
+kunkka-retrofit-core = { group = "com.adkhambek.kunkka", name = "retrofit-core", version.ref = "kunkka" }
+kunkka-retrofit-gen = { group = "com.adkhambek.kunkka", name = "retrofit-gen", version.ref = "kunkka" }
+
 
 #############################################
 ## Network
@@ -164,6 +173,7 @@ network = [
 ## Google
 #############################################
 android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 
 #############################################
 ## Kotlin
