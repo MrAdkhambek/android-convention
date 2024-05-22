@@ -14,6 +14,7 @@ android {
     compileOptions {
         sourceCompatibility = libraries.versions.sourceCompatibility
         targetCompatibility = libraries.versions.targetCompatibility
+        isCoreLibraryDesugaringEnabled = true
     }
 
     signingConfigs {
@@ -79,5 +80,9 @@ android {
 
     kotlinOptions {
         jvmTarget = libraries.versions.jdk.toString()
+    }
+
+    dependencies {
+        add("coreLibraryDesugaring", libraries.findLibrary("coreLibraryDesugaring").get())
     }
 }

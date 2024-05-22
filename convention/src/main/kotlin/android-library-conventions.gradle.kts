@@ -14,6 +14,7 @@ android {
     compileOptions {
         sourceCompatibility = libraries.versions.sourceCompatibility
         targetCompatibility = libraries.versions.targetCompatibility
+        isCoreLibraryDesugaringEnabled = true
     }
 
     defaultConfig {
@@ -51,5 +52,9 @@ android {
             "-Xexplicit-api=warning",
             "-Xcontext-receivers"
         )
+    }
+
+    dependencies {
+        add("coreLibraryDesugaring", libraries.findLibrary("coreLibraryDesugaring").get())
     }
 }
