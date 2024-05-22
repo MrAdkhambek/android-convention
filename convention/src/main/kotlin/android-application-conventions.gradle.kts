@@ -1,3 +1,4 @@
+import extension.findLibraryOrThrow
 import extension.getSigningConfigProperties
 import extension.libraries
 import extension.versions
@@ -83,6 +84,6 @@ android {
     }
 
     dependencies {
-        add("coreLibraryDesugaring", libraries.findLibrary("coreLibraryDesugaring").get())
+        add("coreLibraryDesugaring", libraries.findLibraryOrThrow("coreLibraryDesugaring").get())
     }
 }
