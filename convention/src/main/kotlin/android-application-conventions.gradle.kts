@@ -25,12 +25,7 @@ android {
             keyAlias = "android.debug.key"
             keyPassword = "android"
         }
-        create("mock") {
-            storeFile = project.file("${project.rootDir}/config/debug.keystore")
-            storePassword = "android"
-            keyAlias = "android.debug.key"
-            keyPassword = "android"
-        }
+
         create("release") {
             project.getSigningConfigProperties("release").run {
                 storeFile = project.file("${project.rootDir}/${getProperty("storeFile")}")
@@ -48,6 +43,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions += "env"
+    productFlavors {
+        create("mock") {
+            dimension = "env"
+            applicationIdSuffix = ".mock"
+            versionNameSuffix = "-mock"
+        }
+    }
+
     buildTypes {
         getByName("debug") {
             applicationIdSuffix = ".debug"
@@ -60,17 +64,7 @@ android {
             enableUnitTestCoverage = true
             enableAndroidTestCoverage = true
         }
-        getByName("mock") {
-            applicationIdSuffix = ".mock"
-            signingConfig = signingConfigs.getByName("mock")
 
-            // Proguard configuration
-            isMinifyEnabled = false
-
-            // Tests configuration
-            enableUnitTestCoverage = true
-            enableAndroidTestCoverage = true
-        }
         getByName("release") {
             signingConfig = signingConfigs.getByName("release")
 
