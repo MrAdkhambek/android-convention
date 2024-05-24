@@ -25,6 +25,12 @@ android {
             keyAlias = "android.debug.key"
             keyPassword = "android"
         }
+        create("mock") {
+            storeFile = project.file("${project.rootDir}/config/debug.keystore")
+            storePassword = "android"
+            keyAlias = "android.debug.key"
+            keyPassword = "android"
+        }
         create("release") {
             project.getSigningConfigProperties("release").run {
                 storeFile = project.file("${project.rootDir}/${getProperty("storeFile")}")
@@ -46,6 +52,17 @@ android {
         getByName("debug") {
             applicationIdSuffix = ".debug"
             signingConfig = signingConfigs.getByName("debug")
+
+            // Proguard configuration
+            isMinifyEnabled = false
+
+            // Tests configuration
+            enableUnitTestCoverage = true
+            enableAndroidTestCoverage = true
+        }
+        getByName("mock") {
+            applicationIdSuffix = ".mock"
+            signingConfig = signingConfigs.getByName("mock")
 
             // Proguard configuration
             isMinifyEnabled = false
