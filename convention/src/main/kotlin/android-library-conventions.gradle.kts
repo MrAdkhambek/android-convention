@@ -23,6 +23,13 @@ android {
         testOptions.targetSdk = libraries.versions.targetSdk // needed for instrumental tests
     }
 
+    flavorDimensions += "env"
+    productFlavors {
+        create("mock") {
+            dimension = "env"
+        }
+    }
+
     buildTypes {
         getByName("debug") {
             // Proguard configuration
