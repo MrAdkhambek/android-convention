@@ -23,24 +23,6 @@ android {
         testOptions.targetSdk = libraries.versions.targetSdk // needed for instrumental tests
     }
 
-    flavorDimensions += "env"
-    productFlavors {
-        create("mock") {
-            dimension = "env"
-        }
-    }
-
-    buildTypes {
-        getByName("debug") {
-            // Proguard configuration
-            isMinifyEnabled = false
-
-            // Tests configuration
-            enableUnitTestCoverage = true
-            enableAndroidTestCoverage = true
-        }
-    }
-
     packaging {
         resources {
             excludes.add("META-INF/LICENSE.md")

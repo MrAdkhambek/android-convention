@@ -43,15 +43,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    flavorDimensions += "env"
-    productFlavors {
-        create("mock") {
-            dimension = "env"
-            applicationIdSuffix = ".mock"
-            versionNameSuffix = "-mock"
-        }
-    }
-
     buildTypes {
         getByName("debug") {
             applicationIdSuffix = ".debug"
@@ -63,6 +54,12 @@ android {
             // Tests configuration
             enableUnitTestCoverage = true
             enableAndroidTestCoverage = true
+        }
+
+        create("mock") {
+            // Apply debug type setting by initWith()
+            initWith(getByName("debug"))
+            applicationIdSuffix = ".mock"
         }
 
         getByName("release") {
