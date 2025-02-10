@@ -56,12 +56,6 @@ android {
             enableAndroidTestCoverage = true
         }
 
-        create("mock") {
-            // Apply debug type setting by initWith()
-            initWith(getByName("debug"))
-            applicationIdSuffix = ".mock"
-        }
-
         getByName("release") {
             signingConfig = signingConfigs.getByName("release")
 
