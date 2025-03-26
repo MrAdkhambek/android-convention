@@ -26,14 +26,14 @@ android {
             keyPassword = "android"
         }
 
-        create("release") {
-            project.getSigningConfigProperties("release").run {
-                storeFile = project.file("${project.rootDir}/${getProperty("storeFile")}")
-                storePassword = getProperty("storePassword")
-                keyAlias = getProperty("keyAlias")
-                keyPassword = getProperty("keyPassword")
-            }
-        }
+//        create("release") {
+//            project.getSigningConfigProperties("release").run {
+//                storeFile = project.file("${project.rootDir}/${getProperty("storeFile")}")
+//                storePassword = getProperty("storePassword")
+//                keyAlias = getProperty("keyAlias")
+//                keyPassword = getProperty("keyPassword")
+//            }
+//        }
     }
 
     defaultConfig {
@@ -56,17 +56,17 @@ android {
             enableAndroidTestCoverage = true
         }
 
-        getByName("release") {
-            signingConfig = signingConfigs.getByName("release")
-
-            // Proguard configuration
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(
-                "proguard-android-optimize.txt",
-                "proguard-rules.pro"
-            )
-        }
+//        getByName("release") {
+//            signingConfig = signingConfigs.getByName("release")
+//
+//            // Proguard configuration
+//            isMinifyEnabled = true
+//            isShrinkResources = true
+//            proguardFiles(
+//                "proguard-android-optimize.txt",
+//                "proguard-rules.pro"
+//            )
+//        }
     }
 
     packaging {

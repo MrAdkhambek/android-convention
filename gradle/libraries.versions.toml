@@ -3,12 +3,12 @@
 #############################################
 ## Android
 #############################################
-jdk = "11"
+jdk = "17"
 minSdk = "21"
 targetSdk = "35"
 compileSdk = "35"
-sourceCompatibility = "11"
-targetCompatibility = "11"
+sourceCompatibility = "17"
+targetCompatibility = "17"
 
 gradleSourceCompatibility = "17"
 gradleTargetCompatibility = "17"
