@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package extension
 
 import org.gradle.api.artifacts.ExternalModuleDependencyBundle

@@ -37,11 +37,6 @@ android {
 
     kotlinOptions {
         jvmTarget = libraries.versions.jdk.toString()
-        freeCompilerArgs += listOf(
-            "-Xjsr305=strict",
-            "-Xexplicit-api=warning",
-            "-Xcontext-receivers"
-        )
     }
 
     dependencies {

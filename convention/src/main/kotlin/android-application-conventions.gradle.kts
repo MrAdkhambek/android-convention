@@ -1,5 +1,4 @@
 import extension.findLibraryOrThrow
-import extension.getSigningConfigProperties
 import extension.libraries
 import extension.versions
 
@@ -25,15 +24,6 @@ android {
             keyAlias = "android.debug.key"
             keyPassword = "android"
         }
-
-//        create("release") {
-//            project.getSigningConfigProperties("release").run {
-//                storeFile = project.file("${project.rootDir}/${getProperty("storeFile")}")
-//                storePassword = getProperty("storePassword")
-//                keyAlias = getProperty("keyAlias")
-//                keyPassword = getProperty("keyPassword")
-//            }
-//        }
     }
 
     defaultConfig {
@@ -55,18 +45,6 @@ android {
             enableUnitTestCoverage = true
             enableAndroidTestCoverage = true
         }
-
-//        getByName("release") {
-//            signingConfig = signingConfigs.getByName("release")
-//
-//            // Proguard configuration
-//            isMinifyEnabled = true
-//            isShrinkResources = true
-//            proguardFiles(
-//                "proguard-android-optimize.txt",
-//                "proguard-rules.pro"
-//            )
-//        }
     }
 
     packaging {
