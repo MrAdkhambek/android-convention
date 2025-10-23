@@ -1,6 +1,8 @@
 import extension.findLibraryOrThrow
 import extension.libraries
 import extension.versions
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
     id("com.android.application")
@@ -59,8 +61,15 @@ android {
         jvmToolchain(jdkVersion = libraries.versions.jdk.asInt())
     }
 
-    kotlinOptions {
-        jvmTarget = libraries.versions.jdk.toString()
+    tasks.withType<KotlinJvmCompile>().configureEach {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_21)
+            freeCompilerArgs.addAll(
+                "-Xjsr305=strict",
+                "-Xexplicit-api=warning",
+                "-Xcontext-parameters"
+            )
+        }
     }
 
     dependencies {

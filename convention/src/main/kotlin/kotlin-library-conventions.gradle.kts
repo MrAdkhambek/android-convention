@@ -1,26 +1,28 @@
 import extension.implementationBundle
+import gradle.kotlin.dsl.accessors._fba23a28a1c8af1776e6159a3fead7ea.java
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 import extension.libraries as libs
-import extension.versions
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("org.jetbrains.kotlin.jvm")
 }
 
-tasks.withType(KotlinCompile::class).all {
-    kotlinOptions {
-        jvmTarget = libs.versions.jdk.toString()
-        freeCompilerArgs += listOf(
+tasks.named<KotlinJvmCompile>("compileKotlin") {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_21)
+        optIn.add("kotlin.RequiresOptIn")
+        freeCompilerArgs.addAll(
             "-Xjsr305=strict",
             "-Xexplicit-api=warning",
-            "-Xcontext-receivers"
+            "-Xcontext-parameters"
         )
     }
 }
 
-tasks.withType(JavaCompile::class).all {
-    sourceCompatibility = libs.versions.sourceCompatibility.toString()
-    targetCompatibility = libs.versions.targetCompatibility.toString()
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 dependencies {
